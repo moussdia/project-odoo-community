@@ -1,0 +1,55 @@
+<odoo>
+    <data>
+
+        <record id="crm_team_view_form" model="ir.ui.view">
+            <field name="name">crm.team.form.inh</field>
+            <field name="model">crm.team</field>
+            <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="required">1</attribute>
+                </xpath>
+
+                <!--<xpath expr="//field[@name='alias_user_id']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>-->
+
+                <xpath expr="//field[@name='invoiced_target']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='alias_contact']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="/form/sheet/group/group[2]" position="inside">
+                    <field name="geographic_zone" required="1"/>
+                </xpath>
+
+                <xpath expr="/form/sheet/notebook/page[1]" position="after">
+                    <page string="Tailles de l'entreprise">
+                        <group>
+                            <field name="enterprise_size_ids" nolabel="1"/>
+                        </group>
+                    </page>
+                    <page string="Produits">
+                        <group>
+                            <field name="product_ids" nolabel="1"/>
+                        </group>
+                    </page>
+                    <page string="Secteurs d'activité">
+                        <group>
+                            <field name="activity_sector_ids" nolabel="1"/>
+                        </group>
+                    </page>
+                    <page string="Objectif de l’équipe">
+                        <group>
+                            <field name="team_goal" required="1" nolabel="1" placeholder="Objectif de l’équipe"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

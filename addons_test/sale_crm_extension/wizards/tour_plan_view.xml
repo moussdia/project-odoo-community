@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="create_tour_plan_wizard" model="ir.ui.view">
+            <field name="name">tour.plan.wizards</field>
+            <field name="model">tour.plan.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Plan de tournée">
+                    <group string="Plan de tournée de la semaine">
+                        <group>
+                            <field name="date_from" string="Du"/>
+                        </group>
+                        <group>
+                            <field name="date_to" string="Au"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="action_tour_plan_cron" string="Imprimer"
+                                type="object" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel" type="object" class="btn-primary"/>
+                    </footer>
+                </form>
+            </field>
+    </record>
+    <record id="action_plans_wizard" model="ir.actions.act_window">
+        <field name="name">Plan de tournée</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">tour.plan.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+        <menuitem id="menu_create_tour_plan_wizard"
+                  name="Plans de tournée détaillé"
+                  parent="sale_crm_extension.sale_crm_reports_menu"
+                  action="action_plans_wizard"
+                  groups="sale_crm_extension.group_chef_service_commercial"
+        />
+
+    </data>
+</odoo>
+

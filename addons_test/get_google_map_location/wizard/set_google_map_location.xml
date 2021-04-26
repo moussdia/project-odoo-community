@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+        <record id="view_set_google_map_location" model="ir.ui.view">
+        <field name="name">Set Google Map Location</field>
+        <field name="model">set.google.map.location</field>
+        <field name="arch" type="xml">
+        <form string="Set New Location">
+                <p class="oe_gray">
+                    Set new location
+                </p>
+                <group>
+                    <group>
+                        <field name="partner_id"/>
+                        <field name="google_map_latitude"/>
+                        <field name="google_map_longitude"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="change_location"
+                            string="Apply"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-default" special="cancel" />
+                </footer>
+        </form>
+        </field>
+        </record>
+
+        <record id="action_set_google_map_location" model="ir.actions.act_window">
+	        <field name="name">Set Google Map Location</field>
+            <field name="res_model">set.google.map.location</field>
+	        <field name="view_mode">form</field>
+	        <field name="view_id" ref="view_set_google_map_location"/>
+	        <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

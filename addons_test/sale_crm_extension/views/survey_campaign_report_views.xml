@@ -1,0 +1,28 @@
+<odoo>
+    <data>
+
+        <record id="action_utm_campaign_report_menu" model="ir.actions.server">
+            <field name="name">Actions de communication et de commercialisation</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_utm_campaign_report"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = model.print_communication_marketing_report()
+            </field>
+
+        </record>
+
+        <menuitem id="utm_campaign_report_menu"
+                  name="Analyse"
+                  parent="survey.menu_surveys"
+                  sequence="150"
+        />
+        <menuitem id="utm_campaign_communication_menu"
+                  name="Communication marketing"
+                  parent="utm_campaign_report_menu"
+                  action="action_utm_campaign_report_menu"
+        />
+
+
+    </data>
+</odoo>

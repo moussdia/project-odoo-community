@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+        <record id="hr_employee_form_view_form" model="ir.ui.view">
+            <field name="name">hr.employee.inh</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_form"/>
+            <field name="arch" type="xml">
+                <field name="department_id" position="attributes">
+                    <attribute name="string">Direction</attribute>
+                </field>
+            </field>
+        </record>
+        <record id="hr_job_form_view_form" model="ir.ui.view">
+            <field name="name">hr.job.inh</field>
+            <field name="model">hr.job</field>
+            <field name="inherit_id" ref="hr.view_hr_job_form"/>
+            <field name="arch" type="xml">
+                <field name="no_of_recruitment" position="attributes">
+                    <attribute name="string">Employés crées</attribute>
+                </field>
+            </field>
+        </record>
+
+        <record id="view_employee_filter_inherit" model="ir.ui.view">
+            <field name="name">view.employee.filter.inherit</field>
+            <field name="model">hr.employee</field>
+            <field name="inherit_id" ref="hr.view_employee_filter"/>
+            <field name="arch" type="xml">
+                <xpath expr="/search/searchpanel/field[@name='department_id']" position="attributes">
+                    <attribute name="string">DIRECTION</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

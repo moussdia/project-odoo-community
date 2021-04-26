@@ -1,0 +1,218 @@
+.o_main_navbar > ul > li > a:hover, .o_main_navbar > ul > li > label:hover {
+    /* background-color: #31821e;*/ /* fond vert*/
+    background-color: #f7941f; /* fond orange*/
+    /*background: linear-gradient(to bottom, #c07000, #f7941f);*/
+/ / 2 color
+}
+
+.o_main_navbar {
+    position: relative;
+    height: 46px;
+    border-bottom: 1px solid #f7941f;
+    background-color: #f7941f;
+    color: white;
+}
+
+.o_main_navbar .show .dropdown-toggle {
+    background-color: #f7941f;
+}
+
+.o_main_navbar > ul > li.o_extra_menu_items.show > ul > li > a {
+    background-color: #f7941f;
+    color: white;
+    border-bottom: 1px solid #e2e2e0;
+}
+
+.dropdown-item:hover {
+    color: #fff;
+    background-color: #f7941f;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #fff;
+    background-color: #f7941f;
+}
+
+.dropdown-item:hover, .dropdown-item:focus {
+    color: #fff;
+    background-color: #f7941f;
+}
+
+.o_main_navbar > a:hover, .o_main_navbar > a:focus, .o_main_navbar > button:hover, .o_main_navbar > button:focus {
+    background-color: #c07000;
+    color: inherit;
+}
+
+.o_main_navbar > ul > li > a:hover, .o_main_navbar > ul > li > label:hover {
+    background-color: #c07000;
+}
+
+/*.o_menu_apps .dropdown-menu.show {
+    background-size: cover;
+    background-image: url("/static/src/img/background.png");
+}*/
+
+.bg-100 {
+    background-color: #f7941f !important;
+    color: #070707;
+}
+
+.card-body {
+    background-color: #fff;
+}
+
+.btn-primary {
+    color: #FFFFFF;
+    background-color: #00a650;
+    border-color: #00a650;
+}
+
+.btn-primary:hover {
+    color: #FFFFFF;
+    background-color: #1c6740;
+    border-color: #1c6740;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+    color: #FFFFFF;
+    background-color: #1c6740;
+    border-color: #1c6740;
+}
+
+a {
+    color: #24b46e;
+}
+
+a:hover {
+    color: #24b46e;
+}
+
+.btn-link {
+    color: #24b46e;
+}
+
+.btn-link:hover {
+    color: #24b46e;
+}
+
+.o_form_view .o_form_statusbar > .o_statusbar_status > .o_arrow_button.btn-primary.disabled {
+    color: #f7941f;
+}
+
+.o_form_view .o_form_uri {
+    color: #24b46e;
+}
+
+.mk_apps_sidebar_panel .mk_apps_sidebar .mk_apps_sidebar_menu > li:hover > a {
+    background: #24b46e;
+    color: #fff;
+}
+
+.o_searchview .o_searchview_facet {
+    border: 1px solid #f7941f;
+    background: #f7941f;
+    color: #fff;
+}
+
+.o_searchview .o_searchview_facet .o_searchview_facet_label {
+    background-color: #f7941f;
+}
+
+.o_searchview .o_searchview_facet .o_facet_remove {
+    color: #fff;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #24b46e;
+    border-color: #24b46e;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+
+    box-shadow: 0 0 0 0.2rem #24b46e;
+
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+
+    color: #fff;
+    background-color: #24b46e;
+    border-color: #24b46e;
+
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #f7941f;
+    border-color: #f7941f;
+}
+
+element {
+
+}
+
+.btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus, .show > .btn-info.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem #f7941f;
+}
+
+.btn-info:not(:disabled):not(.disabled):active, .btn-info:not(:disabled):not(.disabled).active, .show > .btn-info.dropdown-toggle {
+    color: #fff;
+    background-color: #f7941f;
+    border-color: #f7941f;
+}
+
+.o_menu_apps .dropdown-menu.show .o-app-icon {
+    border-radius: 50%;
+}
+
+.o_base_settings .o_setting_container .settings_tab .selected {
+    background-color: #c07000;
+    box-shadow: inset 3px 0 0 #fff;
+}
+
+.o_base_settings .o_setting_container .settings_tab {
+    background: #f7941f;
+}
+
+.o_base_settings .o_setting_container .settings_tab .tab {
+    color: #fff;
+}
+
+/**
+ increase width form sheet
+ */
+.o_form_view .o_form_sheet_bg > .o_form_sheet {
+    width: auto;
+}
+
+.btn-secondary {
+    color: #00a650;
+}
+
+.o_home_menu_background {
+    background: url('/sale_crm_extension/static/src/img/background.png'), linear-gradient(to right bottom, #77717e, #c9a8a9);
+    background-color: rgba(0, 0, 0, 0);
+    background-size: auto, auto;
+    background-size: cover;
+}
+
+.o_home_menu .o_home_menu_scrollable .o_apps .o_app .o_app_icon {
+    position: relative;
+    width: 80%;
+    max-width: 70px;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 50%;
+}
+
+.o_form_view .o_horizontal_separator {
+    font-weight: bold;
+}
+
+label.o_required_modifier::after,label.o_required_modifier_cst::after  {
+  content: "*";
+  color: #FF0000;
+}
+
+

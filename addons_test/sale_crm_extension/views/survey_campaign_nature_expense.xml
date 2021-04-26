@@ -1,0 +1,35 @@
+<odoo>
+    <data>
+
+          <!-- Palan de maillage -->
+        <record id="utm_campaign_nature_expense" model="ir.ui.view">
+            <field name="name">utm.campaign.nature.expense.tree</field>
+            <field name="model">utm.campaign.nature.expense</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Nature de depense" editable="bottom">
+                    <field name="name" required="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_utm_campaign_nature_expense" model="ir.actions.act_window">
+            <field name="name">Nature de depense</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">utm.campaign.nature.expense</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Créer une nature de depense
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="campaign_nature_expense_menu"
+                  name="Nature de depense"
+                  parent="survey_configuration_menu"
+                  action="action_utm_campaign_nature_expense"
+        />
+
+    </data>
+</odoo>

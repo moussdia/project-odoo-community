@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="1">
+        <!--Email template validation customer -->
+        <record id="sale_crm_extension_send_mail_template" model="mail.template">
+            <field name="name">Activities planinig</field>
+            <field name="model_id" ref="sale_crm_extension.model_mail_activity"/>
+            <field name="email_from">${(user.email or'')|safe }</field>
+            <field name="email_to">${(object.mail_destination or '')|safe}</field>
+            <field name="subject">Planification des activités</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <p>Cher Mr/Mme,</p>
+                        <p>Le commercial <strong>${(user.name)}</strong>  vient de créer une activités.
+                        </p>
+                        <br/>
+                        <br/>
+                        <div style="width: 375px; margin: 0px; padding: 0px; background-color: #6B8E23; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+                            <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+                                <strong style="text-transform:uppercase;">${object.activity_type_id.name}</strong>
+                            </h3>
+                        </div>
+                        <div style="width: 375px; margin: 0px; padding: 0px; background-color: #cdcecc; background-repeat: repeat no-repeat;">
+                            <span style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #000000;">
+                                <p style="margin-left: 10px;"><b>Code activité :</b>${object.name}
+                                </p>
+                                <p style="margin-left: 10px;"><b>Type d'activité :</b>${object.activity_type_id.name}
+                                </p>
+                                <p style="margin-left: 10px;"><b>Résumé :</b>${object.summary}
+                                </p>
+                                <p style="margin-left: 10px;"><b>Date d'échéance :</b>${object.date_deadline}
+                                </p>
+                                <p style="margin-left: 10px;"><b>Assigné à :</b>${object.user_id.name}
+                                </p>
+                            </span>
+                        </div>
+                        <br/>
+                        <p>Veuillez cliquer <a href="${object.url_link}">ici</a> pour y accéder
+                        </p>
+                        <br/>
+                        <br/>
+                        <p>Cordialement!!!</p>
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <!-- Mail activity custom email template -->
+        <record id="sale_crm_extension_custom_mail_activity_template" model="mail.template">
+            <field name="name">Modification of planned activities</field>
+            <field name="model_id" ref="sale_crm_extension.model_mail_activity"/>
+            <field name="email_from">${(user.email or'')|safe }</field>
+            <field name="email_to">${(object.mail_destination or '')|safe}</field>
+            <field name="subject">Modification des activités planifiées</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <p>Cher Mr/Mme,</p>
+                        <p>Le commercial <strong>${(user.name)}</strong>  vient de modifier une activités.
+                        </p>
+                        <br/>
+                        <br/>
+                        <div style="width: 375px; margin: 0px; padding: 0px; background-color: #6B8E23; border-top-left-radius: 5px 5px; border-top-right-radius: 5px 5px; background-repeat: repeat no-repeat;">
+                            <h3 style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #DDD;">
+                                <strong style="text-transform:uppercase;">${object.activity_type_id.name}</strong>
+                            </h3>
+                        </div>
+                        <div style="width: 375px; margin: 0px; padding: 0px; background-color: #cdcecc; background-repeat: repeat no-repeat;">
+                            <span style="margin: 0px; padding: 2px 14px; font-size: 12px; color: #000000;">
+                                <p style="margin-left: 10px;"><b>Code activité :</b>${object.name}
+                                </p>
+                                <p style="margin-left: 10px;"><b>Type d'activité :</b>${object.activity_type_id.name}
+                                </p>
+                                <p style="margin-left: 10px;"><b>Résumé :</b>${object.summary}
+                                </p>
+                                <p style="margin-left: 10px;"><b>Date d'échéance :</b>${object.date_deadline}
+                                </p>
+                                <p style="margin-left: 10px;"><b>Assigné à :</b>${object.user_id.name}
+                                </p>
+                                <p style="margin-left: 10px;"><b>Raison de la mise à jour :</b>${object.modify_raison}
+                                </p>
+                            </span>
+                        </div>
+                        <br/>
+                        <p>Veuillez cliquer <a href="${object.url_link}">ici</a> pour y accéder
+                        </p>
+                        <br/>
+                        <br/>
+                        <p>Cordialement!!!</p>
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <!--Email template validation customer -->
+        <record id="sale_contract_expire_send_mail_template" model="mail.template">
+            <field name="name">Contrat de vente: Notification</field>
+            <field name="model_id" ref="model_sale_contract"/>
+            <field name="email_from">${(user.login or'')|safe }</field>
+            <field name="email_to">${(object.recipients_mails or '')|safe}</field>
+            <field name="subject">Contrat de vente: Notification</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <p>Cher Client,</p>
+                        <p>
+                            Nous vous informons par la présente de la fin de votre contrat numéro
+                            <strong>norder_number</strong>
+                            souscrit auprès de nos services à la date du
+                            ${object.start_date}.
+                        </p>
+                        <br/>
+                        <br/>
+                        <p>Cordialement!!!</p>
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>
+
+
+

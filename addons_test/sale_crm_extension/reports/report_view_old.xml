@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="report.paperformat" id="paperformat_report_contract">
+            <field name="name">paperformat.contract.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">20</field>
+            <field name="margin_right">20</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">20</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <record model="report.paperformat" id="paperformat_consolidated_tour_plan">
+            <field name="name">paperformat.consolidated.tour.plan.report</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">20</field>
+            <field name="margin_right">20</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">20</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">90</field>
+        </record>
+        <record model="report.paperformat" id="paperformat_promotion">
+            <field name="name">paperformat.promotion</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">20</field>
+            <field name="margin_right">20</field>
+            <field name="margin_bottom">20</field>
+            <field name="margin_left">20</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">90</field>
+        </record>
+        <report
+                id="action_print_contract"
+                model="sale.contract"
+                string="Contrat"
+                report_type="qweb-pdf"
+                name="sale_crm_extension.report_contract"
+                file="sale_crm_extension.report_contract"
+                paperformat="paperformat_report_contract"
+        /> <!-- menu= "True" met dans le menu en haut , name: id du rapport et file: le nom du rapport-->
+
+        <record model="report.paperformat" id="paperformat_tour_plan">
+            <field name="name">certificate.paper.format</field>
+            <field name="default" eval="True"/>
+            <field name="format">A4</field>
+            <field name="page_width">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Landscape</field>
+            <field name="margin_top">10</field>
+            <field name="margin_right">10</field>
+            <field name="margin_bottom">2</field>
+            <field name="margin_left">10</field>
+            <field name="header_line" eval="False"/>
+            <field name="header_spacing">20</field>
+            <field name="dpi">90</field>
+        </record>
+
+        <report
+                id="action_tour_plan"
+                model="mail.activity"
+                string="Plan de tournée"
+                menu="True"
+                report_type="qweb-pdf"
+                paperformat="paperformat_tour_plan"
+                name="sale_crm_extension.report_tour_plan"
+                file="sale_crm_extension.report_tour_plan"
+        />
+        <report
+                id="action_consolidated_tour_plan"
+                model="crm.lead"
+                string="Plan de tournée consolidé"
+                menu="True"
+                report_type="qweb-pdf"
+                paperformat="paperformat_consolidated_tour_plan"
+                name="sale_crm_extension.report_consolidated_tour_plan"
+                file="sale_crm_extension.report_consolidated_tour_plan"
+        />
+
+        <report
+                id="action_productivite_performance"
+                model="crm.kpi"
+                string="Productivité et performance"
+                menu="True"
+                report_type="qweb-pdf"
+                paperformat="paperformat_consolidated_tour_plan"
+                name="sale_crm_extension.productivite_performance"
+                file="sale_crm_extension.productivite_performance"
+        />
+        <report
+                id="action_promotion"
+                model="crm.promotion"
+                string="Promotion"
+                menu="True"
+                report_type="qweb-pdf"
+                paperformat="paperformat_promotion"
+                name="sale_crm_extension.report_promotion"
+                file="sale_crm_extension.report_promotion"
+        />
+        <report
+                id="action_communication_marketing"
+                model="utm.campaign.report"
+                string="Communication et marketing"
+                menu="True"
+                report_type="qweb-pdf"
+                paperformat="paperformat_promotion"
+                name="sale_crm_extension.utm_campaign_report"
+                file="sale_crm_extension.utm_campaign_report"
+        />
+    </data>
+</odoo>

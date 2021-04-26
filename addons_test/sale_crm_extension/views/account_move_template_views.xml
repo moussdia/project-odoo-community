@@ -1,0 +1,129 @@
+<odoo>
+    <data>
+        <template id="external_account_move_report_layout">
+            <t t-if="not o" t-set="o" t-value="doc"/>
+            <t t-if="not company">
+                <!-- Multicompany -->
+                <t t-if="company_id">
+                    <t t-set="company" t-value="company_id"/>
+                </t>
+                <t t-elif="o and 'company_id' in o">
+                    <t t-set="company" t-value="o.company_id.sudo()"/>
+                </t>
+                <t t-else="else">
+                    <t t-set="company" t-value="res_company"/>
+                </t>
+            </t>
+            <t t-if="company.external_report_layout_id" t-call="sale_crm_extension.report_account_mve_wizard_preview">
+                <t t-raw="0"/>
+            </t>
+            <t t-else="else" t-call="sale_crm_extension.report_account_mve_wizard_preview">
+                <t t-raw="0"/>
+            </t>
+        </template>
+        <template id="report_account_mve_wizard_preview">
+            <t t-call="web.html_preview_container">
+                <template id="sale_crm_extension_web_external_layout">
+                    <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+                        <div class="row">
+                            <div class="col-3 mb4">
+                                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)"
+                                     style="max-height: 45px;" alt="Logo"/>
+                            </div>
+                            <div class="col-6 mb4" align="center" style="margin-top: 8px;font-size: 24px;">
+                                <span>
+                                    <strong>FACTURE</strong>
+                                </span>
+                            </div>
+                        </div>
+                        <div t-if="company.logo or company.report_header" class="row zero_min_height">
+                            <div class="col-12">
+                                <div style="border-bottom: 1px solid black;"/>
+                            </div>
+                        </div>
+                        <div class="row" style="font-size:12px;font-family:serif">
+                            <div class="col-6" name="company_address">
+                                <!--<strong>Support de Publication</strong>-->
+                                <div t-field="company.partner_id"
+                                     t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                            </div>
+                            <div class="col-6">
+                                <strong style="margin-left:0px">Adresse du Client</strong>
+                                <br/>
+                                <div t-call="sale_crm_extension.report_head_invoice_address_preview"
+                                     style="margin-left:16px"
+                                     t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                            </div>
+                            <div class="col-6">
+                                <table class="table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>N° pièce</th>
+                                            <th>Réf.pièce</th>
+                                            <th>Date pièce</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>AC232323</td>
+                                            <td>Réf 7673232</td>
+                                            <td>20/04/2020</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div t-attf-class="article o_report_layout_standard o_company_#{company.id}_layout"
+                         t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id"
+                         t-att-data-oe-lang="o and o.env.context.get('lang')">
+                        <div class="pt-5">
+                        </div>
+                        <t t-raw="0"/>
+                    </div>
+                    <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+                        <div style="border-top: 1px solid black;">
+                            <div class="row" style="font-size:12px;font-family:serif">
+                                <div class="col-4" align="left">
+                                    <strong>SNPECI Confidentiel</strong>
+                                </div>
+                                <div class="col-4" align="center">Imprimé le
+                                    <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%d/%m/%Y')"/>
+                                </div>
+                                <div class="col-4" align="right">
+                                    <div t-if="report_type == 'pdf'" class="text-muted">
+                                        Page
+                                        <span class="page"/>
+                                        /
+                                        <span class="topage"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </t>
+        </template>
+
+        <template id="report_head_invoice_address_preview">
+            <t t-set="colclass" t-value="('col-md-5' if report_type == 'html' else 'col-5') + ' ml-auto'"/>
+            <t t-if="address">
+                <div class="address row">
+                    <t t-if="information_block">
+                        <t t-set="colclass" t-value="'col-5'"/>
+                        <div name="information_block" class="col-6">
+                            <t t-raw="information_block"/>
+                        </div>
+                    </t>
+                    <div name="address" style="font-size:12px; font-family:serif">
+                        <t t-raw="address"/>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="utm_kpi_indicator">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style type="text/css">
+                            .info_client table tr td{ border:1; }
+                            td{padding: 4px;}
+                            div#titre {
+                            font-size: 18px;
+                            color: #00008B;
+                            font-family: "Times New Roman", Arial;
+                            }
+
+                            div#annee {
+                            font-size: 15px;
+                            font-family: "Times New Roman", Arial;
+                            }
+
+                            table {
+                            border-collapse: collapse;
+                            width: 100%;
+                            font-size: 15px;
+                            font-family: "Times New Roman", Arial;
+                            border-radius: 10px;
+                            border: 0px;
+                            }
+
+                            th {
+                            border: 1px;
+                            text-align: left;
+                            background-color: #E6ECEB;
+                            height: 15px;
+                            }
+
+                            td {
+                            border: 1px;
+                            margin: 0px;
+                            padding-left: 5px;
+                            padding-right: 5px;
+                            }
+                            hr {
+                            height: 1px;
+                            color: #000;
+                            background-color: #000;
+                            }
+                            .table2{
+                            display: block;
+                            float: left;
+                            width: 50%;
+                            }
+                        </style>
+                        <div class="info_header" style="margin-bottom: 15px;">
+                            <table style="width: 100%; border: none">
+                                <tr style="border: none;">
+                                    <td style="width: 30%">
+                                        <!--<img style="width: 270px; height: 90px"-->
+                                        <!--t-attf-src="data:image/*;base64,{{o.logo}}"/>-->
+                                    </td>
+                                    <td style="">
+                                    </td>
+                                    <td style="">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <br/>
+
+                        <table>
+                            <tr style="">
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 25px; font-family: Arial; text-align: left;">Suivi régulier</td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 25px; font-family: Arial; text-align: left;">Indicateurs de suivi</td>
+                            </tr>
+                            <tr style="">
+                                <td rowspan="7" style="border: 1px solid black; font-size: 20px; font-family: Arial; text-align: left;">Chiffre d'affaires</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Chiffre d'affaires du mois en cours:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">C.A réalisé à date en cumul:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Progression du C.A par rappot à l'année N+1:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">C.A réalisé par rapport à l'objectif</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">C.A réalisé par famille de produit:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">C.A réalisé par segment de client:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">C.A réalisé par region ou zone:</td>
+                            </tr>
+                            <tr style="">
+                                <td rowspan="7" style="border: 1px solid black; font-size: 20px; font-family: Arial; text-align: left;">Volume de vente</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Volume réalisé:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Volume réalisé à date en cumul:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Progression du volume par rappot à l'année N+1:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Volume réalisé par rapport à l'objectif</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Volume réalisé par famille de produit:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Volume réalisé par segment de client:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Volume réalisé par region ou zone:</td>
+                            </tr>
+                            <tr style="">
+                                <td rowspan="5" style="border: 1px solid black; font-size: 20px; font-family: Arial; text-align: left;">Part de marché</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Part de marché globale:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Progression de la part de marché par rappot à l'année N+1:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Répartition de la part de marché par famille de produit:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Répartition de la part de marché par segment de client:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Répartition de la part de marché par region ou zone:</td>
+                            </tr>
+                            <tr style="">
+                                <td rowspan="7" style="border: 1px solid black; font-size: 20px; font-family: Arial; text-align: left;">Rentabilité</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Rentabilité du mois en cours:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Rentabilité réalisé à date en cumul:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Progression du volume par rappot à l'année N+1:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Rentabilité réalisé par rapport à l'objectif</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Rentabilité réalisé par famille de produit:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Rentabilité réalisé par segment de client:</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Rentabilité réalisé par region ou zone:</td>
+                            </tr>
+
+                        </table>
+                        <br/>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

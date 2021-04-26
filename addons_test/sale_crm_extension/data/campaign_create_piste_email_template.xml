@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="campaign_create_suspect_send_mail" model="mail.template">
+            <field name="name">Notification des suspects crées</field>
+            <field name="email_from">${(user.login or'')|safe }</field>
+            <field name="email_to">${(object.user_email or '')|safe}</field>
+            <field name="subject">Notification des suspects crées </field>
+            <field name="model_id" ref="model_create_lead"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <p>Cher Mr/Mme,</p>
+                        <p>Suite à la campagne de
+                            <strong>Marketing, </strong>
+                            des pistes on été crée pour vous. Veuillez mener les actions qui vous imcombent.!!!
+                        </p>
+                        <br/>
+                        <p>Veuillez cliquer <a href="${object.url_link}">ici</a> pour y accéder
+                        </p>
+                        <br/>
+                        <br/>
+                        <p>Cordialement!!!</p>
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

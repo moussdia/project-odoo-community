@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template"  xml:space="preserve">
+    <t t-name="GetGooglemapLocation">
+        <button  icon="gtk-yes" type="button"
+                class="get_google_map_location btn btn-primary btn-sm o_form_button_edit" 
+                >Get Map</button>        
+        <button  icon="gtk-yes" type="object"
+                class="set_google_map_location btn btn-primary btn-sm o_form_button_edit" 
+                >Set Map</button>        
+        <div class="current_gmap" id="current_gmap"></div>
+    </t>
+</templates>

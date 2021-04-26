@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--View form inherit-->
+
+    <record id="survey_user_input_view_tree" model="ir.ui.view">
+        <field name="name">Tree view for survey user_input</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="survey.survey_user_input_view_tree"/>
+        <field name="arch" type="xml">
+            <tree position="attributes">
+                <attribute name="create">true</attribute>
+            </tree>
+        </field>
+    </record>
+
+    <record id="survey_question_view_tree" model="ir.ui.view">
+        <field name="name">Tree view for survey question</field>
+        <field name="model">survey.question</field>
+        <field name="inherit_id" ref="survey.survey_question_tree"/>
+        <field name="arch" type="xml">
+            <tree position="attributes">
+                <attribute name="create">true</attribute>
+            </tree>
+        </field>
+    </record>
+
+    <record id="survey_user_input_line_view_tree_inherit" model="ir.ui.view">
+        <field name="name">survey.user_input.line.inherit</field>
+        <field name="model">survey.user_input.line</field>
+        <field name="inherit_id" ref="survey.survey_response_line_view_tree"/>
+        <field name="arch" type="xml">
+            <tree position="attributes">
+                <attribute name="create">true</attribute>
+            </tree>
+            <xpath expr="//field[@name='user_input_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+                <attribute name="required">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="survey_user_input_line_view_form_inherit" model="ir.ui.view">
+        <field name="name">survey.user_input.line.inherit</field>
+        <field name="model">survey.user_input.line</field>
+        <field name="inherit_id" ref="survey.survey_user_input_line_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='question_id']" position="before">
+                <field name="template_id" readonly="0" options="{'no_quick_create': True, 'no_create_edit' : True}"/>
+            </xpath>
+            <xpath expr="/form/sheet/group[1]" position="before">
+                <group>
+                    <group>
+                        <field name="survey_id" readonly="0"/>
+                        <field name="partner_id" readonly="0"/>
+                    </group>
+                    <group>
+                        <field name="suspect" readonly="0"/>
+                        <field name="email" readonly="0"/>
+                    </group>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="survey_user_input_view_form_inherit" model="ir.ui.view">
+        <field name="name">survey.user_input</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form/header/button[@name='action_resend']" position="before">
+                <button name="action_submit" string="Brouillon"
+                        type="object" class="oe_highlight" attrs="{'invisible':[('state','!=','new')]}"/>
+                <button name="action_validate" string="Valider"
+                        type="object" class="oe_highlight" attrs="{'invisible':[('state','!=','in_progress')]}"/>
+            </xpath>
+            <xpath expr="//field[@name='survey_id']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="suspect"/>
+            </xpath>
+            <xpath expr="//field[@name='survey_id']" position="after">
+                <field name="template_id" readonly="0"/>
+            </xpath>
+            <xpath expr="//field[@name='email']" position="attributes">
+                <attribute name="readonly">0</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

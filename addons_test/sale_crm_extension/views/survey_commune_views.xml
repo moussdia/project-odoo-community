@@ -1,0 +1,39 @@
+<odoo>
+    <data>
+    <!--ADD THEME Action Menu Tree view -->
+        <record id="utm_commune_tree_view" model="ir.ui.view">
+			<field name="name">utm.commune.tree</field>
+			<field name="model">utm.commune</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Commune" editable="bottom" default_order="id desc">
+					<field name="name" required="1"/>
+					<field name="town_id" required="1"/>
+					<field name="description"/>
+				</tree>
+			</field>
+		</record>
+
+        <!-- Action Menu Item Related To Above Action Window -->
+        <record id="action_utm_commune_menu" model="ir.actions.act_window">
+            <field name="name">Commune</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">utm.commune</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Commune
+                </p>
+            </field>
+        </record>
+
+         <menuitem id="utm_commune_under_menu"
+                  name="Commune"
+                  parent="utm_region_menu"
+                  action="action_utm_commune_menu"
+                  groups="sale_crm_extension.group_marketing"
+                  sequence="3"
+        />
+
+    </data>
+</odoo>

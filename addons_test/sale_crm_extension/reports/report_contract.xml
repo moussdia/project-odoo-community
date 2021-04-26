@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_contract">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <t t-call="web.external_layout">
+                            <style type="text/css">
+                                table {
+                                border-collapse: collapse;
+                                width: 100%;
+                                font-family: "Times New Roman", Arial;
+                                }
+                                div {
+                                font-family: "Times New Roman", Arial;
+                                }
+
+                                p {
+                                font-size: 18px;
+                                font-family: "Times New Roman", Arial;
+                                }
+                            </style>
+
+                            <div style="text-align:center;">
+                                <h3 style="font-weight:bold;">
+                                    CONTRAT DE VENTE
+                                </h3>
+                            </div>
+
+                            <br></br>
+                            <br></br>
+
+                            <p>
+                                Le présent Contrat de vente est conclu le ____________________ , par et entre
+                                ________________________, à l'adresse _____________________________ et <span
+                                    t-field="o.customer_id.name"/>, à l'adresse<span
+                                    t-field="o.customer_id.street"/>,<span
+                                    t-field="o.customer_id.city"/>,
+                                <span
+                                        t-field="o.customer_id.country_id.name"/>
+                                , Collectivement « les
+                                Parties ».
+                            </p>
+                            <br></br>
+
+                            <p>CONTEXTE:</p>
+                            <p>Le vendeur est le fabricant / distributeur du (des) produit (s) suivant (s):
+                                _______________________________________________________________________;
+                            </p>
+                            <p>et</p>
+                            <p>L'acheteur souhaite acheter le (s) produit (s) susmentionné (s).</p>
+                            <br></br>
+                            <p>PAR CONSÉQUENT, les Parties conviennent de ce qui suit:</p>
+                            <br></br>
+                            <p>1. Vente de marchandises. Le vendeur mettra à disposition à la vente et l'acheteur
+                                achètera
+                                ________________________________________________________________________
+                                ________________________________________________________________________
+                                ________________________________________________________________________(les biens").
+                            </p>
+
+                            <p>2. <span style="font-weight:bold;">Livraison.</span> Le vendeur livrera les marchandises
+                                à
+                                l'acheteur à
+                                ______________________________. Les Marchandises seront considérées comme livrées
+                                lorsque
+                                l'Acheteur aura accepté la livraison à l'endroit susmentionné. Le mode d'expédition sera
+                                déterminé par le vendeur, mais l'acheteur ne sera responsable que des frais d'expédition
+                                jusqu'à _______________.
+                            </p>
+
+                            <p>3. <span style="font-weight:bold;">Prix d'achat et paiements.</span> Le vendeur accepte
+                                de
+                                vendre les marchandises à l'acheteur
+                                pour _______________________________________________________________________. Le vendeur
+                                fournira une facture à l'acheteur au moment de la livraison. Toutes les factures doivent
+                                être payées, en totalité, dans les trente (30) jours. Tout solde non payé dans les
+                                trente
+                                (30) jours sera soumis à une pénalité de retard de cinq pour cent (5%).
+                            </p>
+
+                            <p>4. <span style="font-weight:bold;">Inspection des marchandises et rejet.</span> L'acheteur
+                                a
+                                le droit d'inspecter les
+                                marchandises
+                                à la livraison. Si les marchandises sont inacceptables pour quelque raison que ce soit,
+                                l'acheteur doit les rejeter au moment de la livraison jusqu'à cinq (5) jours ouvrables à
+                                compter de la date de livraison. Si l'Acheteur n'a pas rejeté les Marchandises dans les
+                                cinq
+                                (5) jours ouvrables à compter de la date de livraison, l'Acheteur aura renoncé à tout
+                                droit
+                                de rejeter cette livraison spécifique de Marchandises.
+                                Dans le cas où l'Acheteur rejette les Marchandises, l'Acheteur accordera au Vendeur un
+                                délai raisonnable pour remédier au défaut. Un délai raisonnable sera déterminé par les
+                                normes de l'industrie pour les marchandises particulières, ainsi que par le vendeur et
+                                l'acheteur.
+                            </p>
+
+                            <p>5. <span style="font-weight:bold;">Risque de perte.</span> Le risque de perte incombera
+                                au
+                                vendeur jusqu'au moment où l'acheteur
+                                accepte la livraison. Le vendeur doit maintenir toute assurance nécessaire afin
+                                d'assurer
+                                les marchandises contre la perte aux frais du vendeur.
+                            </p>
+
+                            <p>6. <span style="font-weight:bold;">Titre.</span> La propriété des marchandises restera
+                                avec
+                                le vendeur jusqu'à ce que l'acheteur
+                                accepte la livraison.
+                            </p>
+
+                            <p>7. <span style="font-weight:bold;">Excuse pour retard ou défaut de performance.</span> Le
+                                vendeur ne sera pas responsable envers
+                                l'acheteur pour tout retard, non-livraison ou défaut de cet accord en raison de conflits
+                                de
+                                travail, de pénurie de transport, de retard ou de pénurie de matériaux pour produire les
+                                marchandises, incendies, accidents, cas de force majeure ou toute autre cause extérieure
+                                du
+                                contrôle du vendeur. Le Vendeur informera l'Acheteur immédiatement après avoir réalisé
+                                qu'il
+                                ne sera pas en mesure de livrer les Marchandises comme promis. Chacune des parties peut
+                                résilier le présent accord sur notification.
+                            </p>
+
+                            <p>8. <span style="font-weight:bold;">Résiliation.</span> Le présent accord peut être
+                                résilié à
+                                tout moment par l'une ou l'autre
+                                des
+                                parties sur notification écrite à l'autre partie. L'acheteur sera responsable du
+                                paiement de
+                                toutes les marchandises livrées et acceptées jusqu'à la date de résiliation.
+                            </p>
+
+                            <p>9. Exclusion de garanties. LES MARCHANDISES SONT VENDUES «EN L'ÉTAT». LE VENDEUR DÉCLINE
+                                EXPRESSÉMENT TOUTE GARANTIE, EXPRESSE OU IMPLICITE, Y COMPRIS, MAIS SANS S'Y LIMITER,
+                                TOUTE
+                                GARANTIE IMPLICITE DE QUALITÉ MARCHANDE OU D'ADAPTATION À UN USAGE PARTICULIER.
+                            </p>
+
+                            <p>10. <span style="font-weight:bold;">Limitation de responsabilité.</span> EN AUCUNE
+                                CIRCONSTANCE, LES PARTIES NE SERONT
+                                RESPONSABLES
+                                ENVERS L'AUTRE PARTIE OU TOUT TIERS POUR TOUT DOMMAGE RÉSULTANT DE TOUTE PARTIE DU
+                                PRÉSENT
+                                CONTRAT TELS QUE, MAIS SANS S'Y LIMITER, LA PERTE DE REVENUS OU LE BÉNÉFICE ANTICIPÉ OU
+                                LA
+                                PERTE D'AFFAIRES, LES FRAIS DE RETARD OU LE DÉFAILLANCE DE LIVRAISON, QUI NE SONT PAS
+                                LIÉES
+                                OU RÉSULTANT DIRECTEMENT DE LA NÉGLIGENCE OU DE LA VIOLATION D'UNE PARTIE.
+                            </p>
+
+                            <p>11. <span style="font-weight:bold;">Divisibilité.</span> Dans le cas où une disposition
+                                du
+                                présent accord est jugée invalide ou
+                                inapplicable, en tout ou en partie, cette partie sera séparée du reste du contrat et
+                                toutes
+                                les autres dispositions devraient rester pleinement en vigueur et effectives comme
+                                valides
+                                et exécutoires.
+                            </p>
+
+                            <p>12. <span style="font-weight:bold;">Renonciation.</span> Le défaut par l'une ou l'autre
+                                des
+                                parties d'exercer un droit, un pouvoir
+                                ou un privilège en vertu des conditions du présent Contrat ne sera pas interprété comme
+                                une
+                                renonciation à tout exercice ultérieur ou ultérieur de ce droit, pouvoir ou privilège ou
+                                à
+                                l'exercice de tout autre droit, pouvoir ou privilège.
+                            </p>
+
+                            <p>13. <span style="font-weight:bold;">Recours et frais juridiques.</span> En cas de litige,
+                                le
+                                seul recours de l'acheteur pour toute
+                                perte ou tout dommage résultant de marchandises défectueuses ou de toute autre cause
+                                sera le
+                                prix d'achat des marchandises particulières pour lesquelles des pertes ou des dommages
+                                sont
+                                réclamés, plus les frais d'expédition. payé par l'acheteur. Dans le cas où un tel
+                                différend
+                                aboutit à une action en justice, la partie gagnante aura droit à ses frais juridiques, y
+                                compris, mais sans s'y limiter, les honoraires de ses avocats.
+                            </p>
+
+                            <p>14. <span style="font-weight:bold;">Accord juridique et contraignant.</span> Cet accord
+                                est
+                                légal et contraignant entre les parties
+                                comme indiqué ci-dessus. Le présent accord peut être conclu et est légal et contraignant
+                                aux
+                                États-Unis et dans toute l'Europe. Les parties déclarent chacune avoir le pouvoir de
+                                conclure le présent accord.
+
+                                <p>15. <span style="font-weight:bold;">Loi applicable et juridiction.</span> Les parties
+                                    conviennent que le présent accord sera
+                                    régi
+                                    par l'État et / ou le pays dans lequel les deux parties exercent leurs activités.
+                                    Dans
+                                    le
+                                    cas où les parties exercent des activités dans différents États et / ou pays, le
+                                    présent
+                                    accord est régi par la loi _________.
+                                </p>
+
+                                <p>16. <span style="font-weight:bold;">Intégralité de l'accord.</span> Les parties
+                                    reconnaissent et conviennent que cet accord
+                                    représente l'intégralité de l'accord entre les parties. Dans le cas où les parties
+                                    souhaitent changer, ajouter ou modifier de quelque manière que ce soit des
+                                    conditions,
+                                    elles
+                                    le feront par écrit et devront être signées par les deux parties.
+                                </p>
+
+                                <p>Les parties acceptent les termes et conditions énoncés ci-dessus, comme en témoignent
+                                    leurs
+                                    signatures:
+                                </p>
+
+                                <p>
+                                    <span style="font-weight:bold;">"VENDEUR"</span>
+                                    <br></br>
+                                    Signé: _____________________________________
+                                    <br></br>
+                                    Par: ________________________________________
+                                    <br></br>
+                                    Date: _______________________________________
+                                    <br></br>
+                                </p>
+
+                                <p>
+                                    <span style="font-weight:bold;">"ACHETEUR"</span>
+                                    <br></br>
+                                    Signé: _____________________________________
+                                    <br></br>
+                                    Par: ________________________________________
+                                    <br></br>
+                                    Date: ______________________________________
+                                    <br></br>
+                                </p>
+                            </p>
+
+                        </t>
+                    </div>
+
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

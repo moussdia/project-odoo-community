@@ -1,0 +1,38 @@
+<odoo>
+    <data>
+    <!--ADD THEME Action Menu Tree view -->
+        <record id="utm_sub_characteristic_tree_view" model="ir.ui.view">
+			<field name="name">utm.sub.characteristic.tree</field>
+			<field name="model">utm.sub.characteristic</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Sous caracteristique" editable="bottom" default_order="id desc">
+					<field name="name" required="1"/>
+					<field name="characteristic_id" required="1"/>
+				</tree>
+			</field>
+		</record>
+
+        <!-- Action Menu Item Related To Above Action Window -->
+        <record id="action_utm_sub_characteristic_menu" model="ir.actions.act_window">
+            <field name="name">Sous caracteristique</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">utm.sub.characteristic</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Sous caracteristique
+                </p>
+            </field>
+        </record>
+
+         <menuitem id="utm_sub_characteristic_menu"
+                  name="Sous caracteristique"
+                  parent="utm_characteristic_menu"
+                  action="action_utm_sub_characteristic_menu"
+                  groups="sale_crm_extension.group_marketing"
+                  sequence="2"
+        />
+
+    </data>
+</odoo>

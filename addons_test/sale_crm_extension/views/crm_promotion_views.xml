@@ -1,0 +1,120 @@
+<odoo>
+    <data>
+
+        <!--ADD THEME Action Menu Tree view -->
+        <record id="crm_promotion_tree_view" model="ir.ui.view">
+            <field name="name">crm.promotion.tree</field>
+            <field name="model">crm.promotion</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Promotions">
+                    <field name="promotion" required="1"/>
+                    <field name="technical_promotion" required="1"/>
+                    <field name="product" required="1"/>
+                    <field name="start_date" required="1"/>
+                    <field name="end_date" required="1"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Action Menu Form view -->
+        <record id="crm_promotion_form_view" model="ir.ui.view">
+            <field name="name">crm.promotion.form</field>
+            <field name="model">crm.promotion</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Promotion" version="7.0" duplicate="0" delete="0">
+                    <sheet>
+                        <div class="oe_title">
+                            <label for="promotion" class="oe_edit_only" style="font-weight: bold;"/>
+                            <field name="promotion" placeholder="Promotion" required="1"
+                                   style="font-weight: bold; font-size:30px;"/>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="promotion" required="1"/>
+
+                                <field name="technical_promotion" required="1"/>
+                                <field name="product" required="1"/>
+                                <field name="start_date" required="1"/>
+                                <field name="end_date" required="1"/>
+                            </group>
+                            <group>
+                                <field name="steps" required="1"/>
+                                <field name="risk_of_cannibalization" required="1"/>
+                                <field name="goal" required="1"/>
+                                <field name="result_indicator" required="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Impératifs">
+                                <field name="reglementation" required="1"/>
+                                <field name="planning" required="1"/>
+                                <field name="logistique" required="1"/>
+                                <field name="available_stock" required="1"/>
+                                <field name="budget" required="1"/>
+                                <field name="Seasonality" required="1"/>
+                            </group>
+                            <group string="Communication">
+                                <field name="relay_to_inform" required="1"/>
+                                <field name="expected_delay_at_the_point_sale" required="1"/>
+                                <field name="media_relay_for_traffic_creation" required="1"/>
+                                <field name="direct_communication_delay" required="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Offre">
+                                <field name="attractivity_degree" required="1"/>
+                                <field name="originality_degree" required="1"/>
+                                <field name="competition_comparison" required="1"/>
+                            </group>
+                            <group></group>
+                        </group>
+
+                        <group>
+                            <field name="promotion_line_ids" nolabel="1">
+                                <tree string="SUIVI" editable="bottom">
+                                    <field name="result_indicator" string="Indicateurs de résultat"/>
+                                    <field name="forecast"/>
+                                    <field name="executed"/>
+                                    <field name="difference"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action Menu Item Related To Above Action Window -->
+        <record id="action_crm_promotion_menu" model="ir.actions.act_window">
+            <field name="name">Promotions</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">crm.promotion</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Créer une promotion
+                </p>
+            </field>
+        </record>
+
+        <record model="ir.ui.menu" id="utm.menu_utm_source">
+            <field name="name">Origine</field>
+        </record>
+
+        <record model="ir.ui.menu" id="utm.menu_utm_medium">
+            <field name="name">Mode d’entrer en rélation</field>
+        </record>
+
+
+        <menuitem id="crm_promotion_menu"
+                  name="Promotion"
+                  parent="utm.marketing_utm"
+                  action="action_crm_promotion_menu"
+                  groups="sale_crm_extension.group_marketing"
+        />
+
+
+    </data>
+</odoo>

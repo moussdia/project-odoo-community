@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--
+            Notif customer expire contract
+        -->
+
+        <record id="ir_cron_expire_contract_auto" model="ir.cron">
+            <field name="name">Contrat de vente: Notifier les clients de l'expiration de leur contrat</field>
+            <field name="model_id" ref="model_sale_contract"/>
+            <field name="type">ir.actions.server</field>
+             <field name="state">code</field>
+            <field name="code">model.compute_expire_contract_auto()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+         <!--
+            Compute goals
+        -->
+        <record id="ir_cron_compute_goals_auto" model="ir.cron">
+            <field name="name">Objectifs: Calculer les objectifs des commerciaux</field>
+            <field name="model_id" ref="model_sale_goal"/>
+            <field name="type">ir.actions.server</field>
+             <field name="state">code</field>
+            <field name="code">model.compute_goals_auto()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record id="ir_cron_tour_plan_auto" model="ir.cron">
+            <field name="name">Plan de tournée</field>
+            <field name="model_id" ref="model_mail_activity"/>
+            <field name="type">ir.actions.server</field>
+             <field name="state">code</field>
+            <field name="code">model.compute_plan_auto()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">weeks</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+    </data>
+
+</odoo>

@@ -1,0 +1,122 @@
+<odoo>
+    <data>
+
+        <!--
+            View search
+        -->
+        <record id="view_sale_goal_search" model="ir.ui.view">
+            <field name="name">view.sale.goal.search</field>
+            <field name="model">sale.goal</field>
+            <field name="arch" type="xml">
+                <search string="Objectifs">
+                    <filter name="my_goals" string="Mes objectifs"
+                            domain="[('user_id', '=', uid)]"/>
+                    <separator/>
+
+                    <field name="user_id" string="Commercial"/>
+                    <field name="team_id" string="Equipe commerciale"/>
+                    <field name="year_id" string="Exercice commercial" domain="[('state','=','open')]"/>
+
+                    <group string="Regrouper par">
+                        <filter name="group_by_team" string="Equipe commerciale"
+                                context="{'group_by': 'team_id'}"/>
+                        <filter name="group_by_user" string="Commercial"
+                                context="{'group_by': 'user_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!--
+            View tree
+        -->
+        <record id="view_sale_goal_tree" model="ir.ui.view">
+            <field name="name">view.sale.goal.tree</field>
+            <field name="model">sale.goal</field>
+            <field name="arch" type="xml">
+                <tree string="Objectifs">
+                    <field name="user_id"/>
+                    <field name="team_id"/>
+                    <field name="year_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--
+            View form
+        -->
+        <record id="view_sale_goal_form" model="ir.ui.view">
+            <field name="name">view.sale.goal.form</field>
+            <field name="model">sale.goal</field>
+            <field name="arch" type="xml">
+                <form string="Objectifs">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="user_id"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="year_id"/>
+                            </group>
+                            <group>
+                                <field name="team_id"/>
+                            </group>
+                        </group>
+                        <group string="Objectifs">
+                            <field name="goal_line_ids" nolabel="1">
+                                <tree string="Objectifs" editable="bottom" create="0" delete="0"
+                                      style="table-layout: initial;" js_class="account_tree">
+                                    <field name="user_id" invisible="1" string="Commercial"/>
+                                    <field name="period_id" readonly="1" string="Période"/>
+                                    <field name="start_date" readonly="1"/>
+                                    <field name="end_date" readonly="1"/>
+                                    <field name="target_goal_volume"/>
+                                    <field name="target_goal_value"/>
+                                    <field name="current_goal_volume" readonly="1"/>
+                                    <field name="current_goal_value" readonly="1"/>
+                                    <field name="rate_goal_volume" readonly="1" optional="hide" widget="progressbar"/>
+                                    <field name="rate_goal_value" readonly="1" optional="hide" widget="progressbar"/>
+                                    <field name="rate_goal_productivity" readonly="1" optional="hide"
+                                           widget="progressbar"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--
+            Actions
+        -->
+        <record id="action_sale_goal_view" model="ir.actions.act_window">
+            <field name="name">Goals</field>
+            <field name="res_model">sale.goal</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_sale_goal_search"/>
+            <field name="context">{search_default_group_by_team': True,'search_default_group_by_user': True}</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Créer un nouvel objectif
+                </p>
+                <p>
+                    Un objectif est défini par un responsable commercial.
+                    Les objectifs peuvent être créés automatiquement à l'aide de la définition d'exercice.
+                </p>
+            </field>
+        </record>
+
+        <!--
+            Menu
+        -->
+        <!-- <menuitem id="sale_year_goal_menu"
+                   name="Objectifs"
+                   parent="sale_year_principal_menu"
+                   action="action_sale_goal_view"
+                   sequence="3"
+                   groups="sale_crm_extension.group_chef_service_administration_vente"/>-->
+
+    </data>
+</odoo>

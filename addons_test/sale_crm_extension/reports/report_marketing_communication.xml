@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_utm_campaign_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="o">
+                    <div class="page">
+                        <style type="text/css">
+                            .info_client table tr td{ border:1; }
+                            td{padding: 4px;}
+                            div#titre {
+                            font-size: 18px;
+                            color: #00008B;
+                            font-family: "Times New Roman", Arial;
+                            }
+
+                            div#annee {
+                            font-size: 15px;
+                            font-family: "Times New Roman", Arial;
+                            }
+
+                            table {
+                            border-collapse: collapse;
+                            width: 100%;
+                            font-size: 15px;
+                            font-family: "Times New Roman", Arial;
+                            border-radius: 10px;
+                            border: 0px;
+                            }
+
+                            th {
+                            border: 1px;
+                            text-align: left;
+                            background-color: #E6ECEB;
+                            height: 15px;
+                            }
+
+                            td {
+                            border: 1px;
+                            margin: 0px;
+                            padding-left: 5px;
+                            padding-right: 5px;
+                            }
+                            hr {
+                            height: 1px;
+                            color: #000;
+                            background-color: #000;
+                            }
+                            .table2{
+                            display: block;
+                            float: left;
+                            width: 50%;
+                            }
+                        </style>
+                        <div class="info_header" style="margin-bottom: 15px;">
+                            <table style="width: 100%; border: none">
+                                <tr style="border: none;">
+                                    <td style="width: 30%">
+                                        <!--<img style="width: 270px; height: 90px"-->
+                                        <!--t-attf-src="data:image/*;base64,{{o.logo}}"/>-->
+                                    </td>
+                                    <td style="">
+                                    </td>
+                                    <td style="">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <br/>
+
+                        <table>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;"></td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;">JANVIER</td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;">FEVRIER</td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;">MARS</td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;">AVRIL</td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;">MAI</td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;">JUIN</td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;">JUILLET</td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;">AOUT</td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;">SEPTEMBRE</td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;">OCTOBRE</td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;">NOVEMBRE</td>
+                                <td style="background-color: #B0C4DE;border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;">DECEMBRE</td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Saison haute</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Lancement intermediaire d'un produit</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Lancement public</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Salon local</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Mailing cible 1</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Mailing cible 2</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Augmentation tarifs</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Salons nationaux</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Pubicité</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Relation publique</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr><tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Promo tête de gondole</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr><tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Marketing direct</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr>
+                            <tr style="">
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: left;">Challenge force de vente</td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                                <td style="border: 1px solid black; font-size: 15px; font-family: Arial; text-align: center;"></td>
+                            </tr>
+
+                        </table>
+                        <br/>
+                    </div>
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="invoice_validated_send_mail" model="mail.template">
+            <field name="name">Notification de facture validée</field>
+            <field name="email_from">${(user.login or'')|safe }</field>
+            <field name="email_to">${(object.user_email or '')|safe}</field>
+            <field name="subject">Notification de facture validée ${object.move_type}</field>
+            <field name="model_id" ref="model_account_move"/>
+            <field name="auto_delete" eval="True"/>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <p>Cher Mr/Mme,</p>
+                        <p>Votre bon de commande a été facturé <strong>${object.move_type}.</strong>
+                            Ci-joint la facture.!!!
+                        </p>
+                        <br/>
+                        <p>Cordialement!!!</p>
+                    </p>
+                </div>
+            </field>
+            <!--<field name="report_template" ref="account.account_invoices_without_payment"/>
+            <field name="report_name">Facture</field>-->
+        </record>
+    </data>
+</odoo>

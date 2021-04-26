@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+    <!--ADD THEME Action Menu Tree view -->
+        <record id="survey_media_type_tree_view" model="ir.ui.view">
+			<field name="name">utm.media.type.tree</field>
+			<field name="model">utm.media.type</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Type de média" editable="bottom" default_order="id desc">
+					<field name="name" required="1"/>
+				</tree>
+			</field>
+		</record>
+
+        <!-- Action Menu Item Related To Above Action Window -->
+        <record id="action_survey_media_type_menu" model="ir.actions.act_window">
+            <field name="name">Type de média</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">utm.media.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Type de média
+                </p>
+            </field>
+        </record>
+
+         <menuitem id="survey_media_type_menu"
+                  name="Type de média"
+                  parent="survey_configuration_menu"
+                  action="action_survey_media_type_menu"
+                  groups="sale_crm_extension.group_marketing"
+                  sequence="2"
+        />
+
+    </data>
+</odoo>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets_backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link href="/sale_crm_extension/static/src/css/style_cst.css" rel="stylesheet" type="text/css"/>
+        </xpath>
+    </template>
+
+    <template id="assets_common" inherit_id="web.assets_common">
+        <xpath expr="." position="inside">
+            <link href="/sale_crm_extension/static/src/css/style_cst.css" rel="stylesheet" type="text/css"/>
+        </xpath>
+    </template>
+</odoo>

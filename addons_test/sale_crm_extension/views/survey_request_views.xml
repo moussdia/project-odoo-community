@@ -1,0 +1,72 @@
+<odoo>
+    <data>
+
+<!--ADD THEME Action Menu Tree view -->
+        <record id="utm_request_tree_view" model="ir.ui.view">
+            <field name="name">utm.request.tree</field>
+            <field name="model">utm.request</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Questionnaires">
+                    <field name="name"/>
+                    <field name="first_name"/>
+                    <field name="sex"/>
+                    <field name="age"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Action Menu Form view -->
+        <record id="utm_request_form_view" model="ir.ui.view">
+            <field name="name">utm.request.form</field>
+            <field name="model">utm.request</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Questionnaires" version="7.0" duplicate="0" delete="0">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="utm_study_id"/>
+                                <field name="name"/>
+                                <field name="first_name"/>
+                            </group>
+                            <group>
+                                <field name="sex"/>
+                                <field name="age"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="utm_question_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="number"/>
+                                    <field name="question"/>
+                                    <field name="answer"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action Menu Item Related To Above Action Window -->
+        <record id="action_utm_request_menu" model="ir.actions.act_window">
+            <field name="name">Questionnaires</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">utm.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Questionnaires
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="utm_request_menu"
+                  name="Questionnaires"
+                  parent="utm_campaign_category_menu"
+                  action="action_utm_request_menu"
+        />
+
+
+    </data>
+</odoo>

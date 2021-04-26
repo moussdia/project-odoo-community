@@ -1,0 +1,37 @@
+<odoo>
+    <data>
+    <!--ADD THEME Action Menu Tree view -->
+        <record id="utm_personality_tree_view" model="ir.ui.view">
+			<field name="name">utm.personality.tree</field>
+			<field name="model">utm.personality</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Personality" editable="bottom" default_order="id desc">
+					<field name="name" required="1"/>
+                    <field name="description"/>
+				</tree>
+			</field>
+		</record>
+
+        <!-- Action Menu Item Related To Above Action Window -->
+        <record id="action_utm_personality_menu" model="ir.actions.act_window">
+            <field name="name">Personality</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">utm.personality</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Personality
+                </p>
+            </field>
+        </record>
+
+         <menuitem id="utm_personality_menu"
+                  name="Personalité"
+                  parent="survey_configuration_menu"
+                  action="action_utm_personality_menu"
+                  sequence="16"
+        />
+
+    </data>
+</odoo>
