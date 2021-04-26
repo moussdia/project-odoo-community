@@ -73,7 +73,7 @@ RUN chown odoo /etc/odoo/odoo.conf \
     && chown -R odoo /mnt/extra-addons
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
 
-COPY ./addons_frat_mat/ /usr/lib/python3/dist-packages/odoo/addons/
+COPY ./addons_test/ /usr/lib/python3/dist-packages/odoo/addons/
 
 # Expose Odoo services
 EXPOSE 8069 8071 8072
