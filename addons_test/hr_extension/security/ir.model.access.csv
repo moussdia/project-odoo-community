@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_sale_crm_extension_sale_crm_extension,sale_crm_extension.sale_crm_extension,model_sale_crm_extension_sale_crm_extension,base.group_user,1,1,1,1
