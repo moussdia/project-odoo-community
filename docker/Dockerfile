@@ -1,5 +1,5 @@
-FROM debian:buster-slim AS dev
-LABEL vendor="veone/odoo-ce-starter" maintainer="dev@veone.net" version="1.0.0"
+FROM debian:buster-slim
+LABEL vendor="veone/odoo/ce" maintainer="dev@veone.net" version="1.0.0"
 
 SHELL ["/bin/bash", "-xo", "pipefail", "-c"]
 
@@ -65,13 +65,14 @@ RUN curl -o odoo.deb -sSL http://nightly.odoo.com/${ODOO_VERSION}/nightly/deb/od
     && rm -rf /var/lib/apt/lists/* odoo.deb
 
 # Copy entrypoint script and Odoo configuration file
-COPY ./docker/entrypoint.sh /
+COPY ./docker/wait-for-psql.py /usr/local/bin/wait-for-psql.py
+COPY ./docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY ./docker/odoo.conf /etc/odoo/
 
-# Set permissions and Mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
-RUN chown odoo /etc/odoo/odoo.conf \
-    && mkdir -p /mnt/extra-addons \
-    && chown -R odoo /mnt/extra-addons
+# Set permissions and Mount /var/lib/odoo to allow restoring filestore and /mnt/veone-addons for users addons
+RUN mkdir -p /mnt/extra-addons /mnt/veone-addons \
+    && chown -R odoo /etc/odoo/odoo.conf /mnt/extra-addons /mnt/veone-addons \
+	&& chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/wait-for-psql.py
 
 # Expose Odoo services
 EXPOSE 8069 8071 8072
@@ -79,25 +80,11 @@ EXPOSE 8069 8071 8072
 # Set the default config file
 ENV ODOO_RC /etc/odoo/odoo.conf
 
-COPY ./docker/wait-for-psql.py /usr/local/bin/wait-for-psql.py
+ENTRYPOINT ["entrypoint.sh"]
+CMD ["odoo"]
 
-FROM dev AS prod
-
-COPY ./addons /mnt/extra-addons
+COPY ./addons /mnt/veone-addons
 COPY ./config /etc/odoo
 
 # Set default user when running the container
 USER odoo
-
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["odoo"]
-
-#ARG ODOO_VERSION=14.0
-
-#FROM odoo:${ODOO_VERSION} AS dev
-#LABEL vendor="veone/odoo-ce-starter" maintainer="dev@veone.net" version="1.0.0"
-
-#FROM dev AS prod
-
-#COPY ./addons /mnt/extra-addons
-#COPY ./config /etc/odoo

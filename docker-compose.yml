@@ -11,9 +11,9 @@ services:
         image: postgres:${POSTGRES_VERSION:-10}
         restart: always
         volumes:
-          - odoo-postgres-data:/var/lib/postgresql/data/pgdata
+          - postgres:/var/lib/postgresql/data/pgdata
 
-    backend:
+    odoo-ce:
         build:
             context: ./
             dockerfile: docker/Dockerfile
@@ -21,26 +21,25 @@ services:
                 ODOO_VERSION: ${ODOO_VERSION:-14.0}
                 ODOO_RELEASE: ${ODOO_RELEASE:-20210427}
                 ODOO_SHA: ${ODOO_SHA:-9d8e8038d5589bc8f4f5f012773dba4deefd3adc}
-            target: ${BACKEND_TARGET:-dev}
         command:
-          - "odoo"
+          - "--"
           - "--init=base"
-          - "--db_host=postgres"
-          - "--db_port=5432"
-          - "--db_user=${POSTGRES_USER:-odoo}"
-          - "--db_password=${POSTGRES_PASSWORD:-odoo}"
           - "--database=${POSTGRES_DB:-odoo}"
-#          - "--config=/etc/odoo/odoo.conf"
-        container_name: backend
+        container_name: odoo-ce
         depends_on:
           - postgres
+        environment:
+            HOST: postgres
+            PORT: 5432
+            USER: ${POSTGRES_USER:-odoo}
+            PASSWORD: ${POSTGRES_PASSWORD:-odoo}
         ports:
-          - ${BACKEND_PUBLISHED_PORT:-8069}:8069
+          - ${ODOO_CE_PUBLISHED_PORT:-8069}:8069
         restart: always
         volumes:
-          - ./config:/etc/odoo
-          - ./addons:/mnt/extra-addons
-          - odoo-backend-data:/var/lib/odoo
+#          - ./config:/etc/odoo
+          - ./addons:/mnt/veone-addons
+          - odoo-ce:/var/lib/odoo
 
     adminer:
         depends_on:
@@ -51,5 +50,5 @@ services:
         restart: always
 
 volumes:
-    odoo-backend-data:
-    odoo-postgres-data:
+    postgres:
+    odoo-ce:
