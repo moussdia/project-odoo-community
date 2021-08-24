@@ -14,7 +14,7 @@ RUN apt-get update && \
         dirmngr=2.2.12-1+deb10u1 \
         fonts-noto-cjk=1:20170601+repack1-3+deb10u1 \
         gnupg=2.2.12-1+deb10u1 \
-        libssl-dev=1.1.1d-0+deb10u6 \
+        libssl-dev=1.1.1d-0+deb10u7 \
         node-less=1.6.3~dfsg-3 \
         npm=5.8.0+ds6-4+deb10u2 \
         python3-num2words=0.5.6-1 \

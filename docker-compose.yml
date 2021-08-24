@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
     postgres:
-        container_name: postgres
+#        container_name: postgres
         environment:
             POSTGRES_DB: ${POSTGRES_DB:-odoo}
             POSTGRES_USER: ${POSTGRES_USER:-odoo}
@@ -25,7 +25,7 @@ services:
           - "--"
           - "--init=base"
           - "--database=${POSTGRES_DB:-odoo}"
-        container_name: odoo-ce
+#        container_name: odoo-ce
         depends_on:
           - postgres
         environment:
